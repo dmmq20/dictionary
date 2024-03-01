@@ -1,7 +1,5 @@
-import { useEffect } from "react";
-
 const DefinitionCard = ({ word, definition }) => {
-  if (definition) {
+  if (definition)
     return (
       <div className="definition-card">
         <h2 className="def-card-word">{word}</h2>
@@ -10,7 +8,6 @@ const DefinitionCard = ({ word, definition }) => {
         {definition.slice(1)}
       </div>
     );
-  }
   return null;
 };
 

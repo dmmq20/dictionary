@@ -1,7 +1,7 @@
 import DefinitionCard from "./components/DefinitionCard";
 import SearchBar from "./components/SearchBar";
 import Title from "./components/Title";
-import * as dictionary from "../dictionary.json";
+import dictionary from "../dictionary.json";
 import { useEffect } from "react";
 import { useState } from "react";
 
@@ -10,7 +10,7 @@ function App() {
   const [searchFilter, setSearchFilter] = useState([]);
 
   useEffect(() => {
-    setWords(Object.keys(dictionary));
+    setWords(Object.keys(dictionary).sort());
   }, []);
 
   return (
