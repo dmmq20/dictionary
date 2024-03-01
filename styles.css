@@ -1,0 +1,68 @@
+body {
+  background-color: rgba(244, 244, 244, 0.665);
+  width: 350px;
+  margin: 0 auto;
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.title {
+  font-size: 24px; /* Adjust the font size as needed */
+  font-weight: bold; /* Make the title bold */
+  color: #333; /* Set the color of the title */
+  margin-bottom: 20px; /* Add some space below the title */
+  margin: 5px;
+}
+
+/* Main Container */
+.main-container {
+  width: 80%; /* Adjust width as needed */
+  margin: 0 auto; /* Centering the container */
+  padding: 15px; /* Adding some padding */
+}
+
+/* Search Bar */
+.search-bar {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+/* Definition Card */
+.definition-card {
+  width: 100%;
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow */
+}
+
+/* Heading for Definition Card */
+.definition-card h2 {
+  margin-top: 0;
+}
+
+/* Text for Definition Card */
+.definition-card p {
+  line-height: 1.6;
+}
+
+.first-letter {
+  font-size: 30px;
+  /*   line-height: 50px; */
+  margin: none;
+}
+
+h2 {
+  margin: 0;
+}
+
+.def-card-word {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 30px;
+}
