@@ -1,15 +1,17 @@
-const DefinitionCard = () => {
-  return (
-    <div className="definition-card">
-      <h2 className="def-card-word">banana</h2>
-      <hr />
-      <span className="first-letter">L</span>orem ipsum dolor sit amet,
-      consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-      dolore magna aliqua. Eget lorem dolor sed viverra ipsum. Mattis vulputate
-      enim nulla aliquet porttitor lacus luctus. Augue mauris augue neque
-      gravida in
-    </div>
-  );
+import { useEffect } from "react";
+
+const DefinitionCard = ({ word, definition }) => {
+  if (definition) {
+    return (
+      <div className="definition-card">
+        <h2 className="def-card-word">{word}</h2>
+        <hr />
+        <span className="first-letter">{definition[0]}</span>
+        {definition.slice(1)}
+      </div>
+    );
+  }
+  return null;
 };
 
 export default DefinitionCard;
