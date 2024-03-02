@@ -1,4 +1,4 @@
-function parse(definition) {
+function parse(definition: string) {
   const result: string[] = [];
   let i = 0;
   while (i < definition.length) {
