@@ -1,15 +1,16 @@
+import React, { ChangeEvent } from 'react';
 import { useState } from "react";
 
 const SearchBar = ({ setSearchFilter, words }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const handleOnChange = (e) => {
+  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     const term = e.target.value;
     setSearchTerm(term);
     setSearchFilter(() => {
       if (term !== "") {
         return words
-          .filter((word) => word.startsWith(term.toUpperCase()))
+          .filter((word: string) => word.startsWith(term.toUpperCase()))
           .slice(0, 5);
       } else {
         return [];
@@ -17,7 +18,7 @@ const SearchBar = ({ setSearchFilter, words }) => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSearchFilter([searchTerm.toUpperCase()]);
     setSearchTerm("");
