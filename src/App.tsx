@@ -6,27 +6,31 @@ import dictionary from "../dictionary.json";
 import { useState, useEffect } from "react";
 
 function App() {
-  const [words, setWords] = useState<string[]>([]);
+  const [words, setWords] = useState<{ [key: string]: string[] }>({});
   const [searchFilter, setSearchFilter] = useState([]);
 
   useEffect(() => {
-    setWords(() => Object.keys(dictionary).sort());
+    setWords(() => {
+      const wordsObj: { [key: string]: string[] } = Object.keys(dictionary)
+        .sort()
+        .reduce((acc, curr) => {
+          const ch = curr[0];
+          if (acc[ch]) acc[ch].push(curr);
+          else acc[ch] = [curr];
+          return acc;
+        }, {});
+      return wordsObj;
+    });
   }, []);
 
   return (
-    words.length > 0 && (
-      <div className="main-container">
-        <Title />
-        <SearchBar setSearchFilter={setSearchFilter} words={words} />
-        {searchFilter.map((word) => (
-          <DefinitionCard
-            key={word}
-            word={word}
-            definition={dictionary[word]}
-          />
-        ))}
-      </div>
-    )
+    <div className="main-container">
+      <Title />
+      <SearchBar setSearchFilter={setSearchFilter} words={words} />
+      {searchFilter.map((word) => (
+        <DefinitionCard key={word} word={word} definition={dictionary[word]} />
+      ))}
+    </div>
   );
 }
 
