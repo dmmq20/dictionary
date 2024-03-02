@@ -1,10 +1,9 @@
-import React from 'react';
+import React from "react";
 import DefinitionCard from "./components/DefinitionCard";
 import SearchBar from "./components/SearchBar";
 import Title from "./components/Title";
 import dictionary from "../dictionary.json";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
   const [words, setWords] = useState<string[]>([]);

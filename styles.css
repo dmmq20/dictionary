@@ -44,26 +44,18 @@ body {
 /* Heading for Definition Card */
 .definition-card h2 {
   margin-top: 0;
-}
-
-/* Text for Definition Card */
-.definition-card p {
-  line-height: 1.6;
-}
-
-.first-letter {
+  font-family: "Libre Baskerville";
+  font-weight: 200;
+  font-style: italic;
   font-size: 30px;
-  /*   line-height: 50px; */
-  margin: none;
 }
 
 h2 {
   margin: 0;
 }
 
-.def-card-word {
-  font-family: "Libre Baskerville", serif;
-  font-weight: 400;
-  font-style: italic;
+.definition-card p::first-letter {
+  font-weight: bold;
   font-size: 30px;
+  line-height: 30px;
 }
