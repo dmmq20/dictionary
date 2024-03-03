@@ -59,3 +59,8 @@ h2 {
   font-size: 30px;
   line-height: 30px;
 }
+
+.show-more {
+  font-weight: 600;
+  cursor: pointer;
+}

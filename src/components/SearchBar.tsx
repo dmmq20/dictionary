@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from "react";
 import { useState } from "react";
 
-const SearchBar = ({ setSearchFilter, words }) => {
+const SearchBar = ({ setSearchFilter, words, setHistory, dictionary }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -20,7 +20,15 @@ const SearchBar = ({ setSearchFilter, words }) => {
 
   const handleSubmit = (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSearchFilter([searchTerm.toUpperCase()]);
+    if (dictionary[searchTerm.toUpperCase()]) {
+      const term = searchTerm.toUpperCase();
+      setSearchFilter([term]);
+      setHistory((history: string[]) =>
+        history.includes(term) ? history : [term].concat(history).slice(0, 5)
+      );
+    } else {
+      setSearchFilter([]);
+    }
     setSearchTerm("");
   };
 

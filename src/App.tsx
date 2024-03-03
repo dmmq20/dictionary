@@ -10,6 +10,7 @@ type Dictionary = { [key: string]: string[] };
 function App() {
   const [words, setWords] = useState<Dictionary>({});
   const [searchFilter, setSearchFilter] = useState([]);
+  const [history, setHistory] = useState<string[]>([]);
 
   useEffect(() => {
     setWords(() => {
@@ -25,11 +26,18 @@ function App() {
     });
   }, []);
 
+  const cardsToShow = searchFilter.length > 0 ? searchFilter : history;
+
   return (
     <div className="main-container">
       <Title />
-      <SearchBar setSearchFilter={setSearchFilter} words={words} />
-      {searchFilter.map((word) => (
+      <SearchBar
+        setSearchFilter={setSearchFilter}
+        words={words}
+        setHistory={setHistory}
+        dictionary={dictionary}
+      />
+      {cardsToShow.map((word) => (
         <DefinitionCard key={word} word={word} definition={dictionary[word]} />
       ))}
     </div>
