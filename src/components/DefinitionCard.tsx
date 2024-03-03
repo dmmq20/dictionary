@@ -1,19 +1,14 @@
 import React, { useState } from "react";
 
-// const DefinitionCard = ({ word, definition }) => {
-//   if (definition) {
-//     return (
-//       <div className="definition-card">
-//         <h2>{word}</h2>
-//         <hr />
-//         <p>{definition}</p>
-//       </div>
-//     );
-//   }
-//   return null;
-// };
+interface DefinitionCardProps {
+  word: string;
+  definition: string;
+}
 
-const DefinitionCard = ({ word, definition }) => {
+const DefinitionCard: React.FC<DefinitionCardProps> = ({
+  word,
+  definition,
+}) => {
   const maxLength = 150;
   const [showFullDefinition, setShowFullDefinition] = useState<boolean>(false);
 
@@ -29,10 +24,9 @@ const DefinitionCard = ({ word, definition }) => {
         <p>
           {showFullDefinition
             ? definition
-            : `${definition.slice(0, maxLength)}...`}
+            : `${definition.slice(0, maxLength)}... `}
           {!showFullDefinition && definition.length > maxLength && (
             <span onClick={toggleDefinition} className="show-more">
-              {" "}
               show more
             </span>
           )}

@@ -5,16 +5,16 @@ import Title from "./components/Title";
 import dictionary from "../dictionary.json";
 import { useState, useEffect } from "react";
 
-type Dictionary = { [key: string]: string[] };
+type DictionaryMap = { [key: string]: string[] };
 
 function App() {
-  const [words, setWords] = useState<Dictionary>({});
-  const [searchFilter, setSearchFilter] = useState([]);
+  const [words, setWords] = useState<DictionaryMap>({});
+  const [searchFilter, setSearchFilter] = useState<string[]>([]);
   const [history, setHistory] = useState<string[]>([]);
 
   useEffect(() => {
     setWords(() => {
-      const wordsObj: Dictionary = Object.keys(dictionary)
+      const wordsObj: DictionaryMap = Object.keys(dictionary)
         .sort()
         .reduce((acc, curr) => {
           const ch = curr[0];

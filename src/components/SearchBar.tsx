@@ -1,7 +1,19 @@
 import React, { ChangeEvent } from "react";
 import { useState } from "react";
 
-const SearchBar = ({ setSearchFilter, words, setHistory, dictionary }) => {
+interface SearchBarProps {
+  setSearchFilter: React.Dispatch<React.SetStateAction<string[]>>;
+  words: { [key: string]: string[] };
+  setHistory: React.Dispatch<React.SetStateAction<string[]>>;
+  dictionary: { [key: string]: string } | {};
+}
+
+const SearchBar: React.FC<SearchBarProps> = ({
+  setSearchFilter,
+  words,
+  setHistory,
+  dictionary,
+}) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
