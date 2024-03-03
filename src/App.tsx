@@ -1,11 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import DefinitionCard from "./components/DefinitionCard";
 import SearchBar from "./components/SearchBar";
 import Title from "./components/Title";
 import dictionary from "../dictionary.json";
-import { useState, useEffect } from "react";
-
-type DictionaryMap = { [key: string]: string[] };
+import { DictionaryMap } from "./types";
 
 function App() {
   const [words, setWords] = useState<DictionaryMap>({});
@@ -33,8 +31,8 @@ function App() {
       <Title />
       <SearchBar
         setSearchFilter={setSearchFilter}
-        words={words}
         setHistory={setHistory}
+        words={words}
         dictionary={dictionary}
       />
       {cardsToShow.map((word) => (

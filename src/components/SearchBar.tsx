@@ -1,17 +1,19 @@
-import React, { ChangeEvent } from "react";
-import { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
+import { DictionaryMap } from "../types";
+
+type Definitions = { [key: string]: string };
 
 interface SearchBarProps {
   setSearchFilter: React.Dispatch<React.SetStateAction<string[]>>;
-  words: { [key: string]: string[] };
   setHistory: React.Dispatch<React.SetStateAction<string[]>>;
-  dictionary: { [key: string]: string } | {};
+  words: DictionaryMap;
+  dictionary: Definitions | {};
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({
   setSearchFilter,
-  words,
   setHistory,
+  words,
   dictionary,
 }) => {
   const [searchTerm, setSearchTerm] = useState("");
